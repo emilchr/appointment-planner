@@ -16,11 +16,11 @@ const [ appointments, setAppointments ] = useState([]);
   Implement functions to add data to
   contacts and appointments
   */
- const addContact = (name, phoneNumber, email) => {
+ const addContact = (name, phone, email) => {
 
   const newContact = { // creates a new contact with destructured key-values
     name,
-    phoneNumber,
+    phone,
     email
   }
 
@@ -49,7 +49,7 @@ const [ appointments, setAppointments ] = useState([]);
       contacts={ contacts } 
       addContact={ addContact }
       /> /* Add props to ContactsPage */ }/>
-      
+
       <Route path={ROUTES.APPOINTMENTS} element={ 
       <AppointmentsPage 
       appointments={ appointments} 
