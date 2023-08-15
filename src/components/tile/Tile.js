@@ -13,7 +13,7 @@ export const Tile = (props) => {
       <div className="tile"> {
         // gets all the entries in description, maps them according to key, value and gives them a index as key in the rendering.
         Object.entries(props.description).map(([key, value], index) => (<p key={index}>  { capitalize(key) + ": " + value } </p>))
-      }
+      }<hr />
       </div>
     </div>
   );
