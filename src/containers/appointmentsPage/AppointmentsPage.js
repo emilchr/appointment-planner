@@ -10,7 +10,7 @@ export const AppointmentsPage = (props) => {
   */
  const appointments = props.appointments;
 
- const [ currentName, setCurrentName ] = useState('');
+ const [ name, setName ] = useState('');
  const [ contact, setContact ] = useState('');
  const [ date, setDate ] = useState('');
  const [ time, setTime ] = useState('');
@@ -20,11 +20,16 @@ export const AppointmentsPage = (props) => {
     /*
     Add contact info and clear data  
     */
-   props.addAppointment(currentName, contact, date, time);
-   setCurrentName('');
-   setContact('');
-   setDate('');
-   setTime('');
+   if (name === ' ' || name === '') {
+    alert('Please fill in a value.');
+   } else {
+      props.addAppointment(name, contact, date, time);
+      setName('');
+      setContact('');
+      setDate('');
+      setTime('');
+   }
+   
    
   };
 
@@ -32,6 +37,17 @@ export const AppointmentsPage = (props) => {
     <div>
       <section>
         <h2>Add Appointment</h2>
+        <AppointmentForm 
+        handleSubmit={ handleSubmit }
+        name={ name }
+        setName={ setName }
+        contact={ contact }
+        setContact={ setContact }
+        date={ date }
+        setDate={ setDate }
+        time={ time }
+        setTime={ setTime }
+        />
       </section>
       <hr />
       <section>

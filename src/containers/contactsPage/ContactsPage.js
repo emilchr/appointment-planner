@@ -40,7 +40,7 @@ export const ContactsPage = (props) => {
       setCurrentEmail('');
 
    } else if (currentName === "" || currentName === " ") {  // Does not add contact if value is nothing or with a space
-      alert('Please fill in a value.')
+      alert('Please fill in a value.');
    } else {
 
       alert('The contact already exists.');
