@@ -75,7 +75,7 @@ export const ContactsPage = (props) => {
       <hr />
       <section>
         <h2>Contacts</h2>
-        <TileList list={ contacts } />
+        <TileList contacts={ contacts } />
       </section>
     </div>
   );
