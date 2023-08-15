@@ -9,8 +9,15 @@ function App() {
   Define state variables for 
   contacts and appointments 
   */
-const [ contacts, setContacts ] = useState([{name: "Test", phone: "99999999", email: "test@test.no"}, {name: "Emil", phone: "90233354", email: "emil_ow@hotmail.com"}]);
-const [ appointments, setAppointments ] = useState([]);
+const [ contacts, setContacts ] = useState([
+  {name: "Test Testison", phone: "99999999", email: "test@test.no"}, 
+  {name: "Emil Westrum", phone: "90233354", email: "emil_ow@hotmail.com"}
+]);
+
+const [ appointments, setAppointments ] = useState([
+  {name: "Test Testison", contact: "Random mcRandom", date: "10/01/10", time: "12:00"},
+  {name: "Emil Westrum", contact: "Test Testison", date: "20/12/23", time: "13:00"},
+]);
 
   /*
   Implement functions to add data to
@@ -52,7 +59,8 @@ const [ appointments, setAppointments ] = useState([]);
 
       <Route path={ROUTES.APPOINTMENTS} element={ 
       <AppointmentsPage 
-      appointments={ appointments} 
+      appointments={ appointments }
+      contacts={ contacts } 
       addAppointment={ addAppointment } 
       /> /* Add props to AppointmentsPage */ }/>
     </Route>
