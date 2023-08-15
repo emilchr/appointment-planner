@@ -1,14 +1,15 @@
 import React from "react";
 
 export const ContactForm = ({
-  name,
-  setName,
-  phone,
-  setPhone,
-  email,
-  setEmail,
+  currentName,
+  setCurrentName,
+  currentPhone,
+  setCurrentPhone,
+  currentEmail,
+  setCurrentEmail,
   handleSubmit
 }) => {
+
   return (
     <>
     <form onSubmit={handleSubmit}>
@@ -18,8 +19,8 @@ export const ContactForm = ({
         <input 
         name="name" 
         type="text" 
-        value={ name }
-        onChange={ (e) => setName(e.target.value)}
+        value={ currentName }
+        onChange={ (e) => setCurrentName(e.target.value) }
         />
       </label><br />
 
@@ -27,8 +28,10 @@ export const ContactForm = ({
       <label htmlFor="phone">
         <input 
         name="phone" 
-        type="text" 
-        value={ phone }
+        type="text"
+        pattern="(0047|\+47|47)?[2-9]\d{7}" 
+        value={ currentPhone }
+        onChange={ (e) => setCurrentPhone(e.target.value) }
         />
       </label><br />
 
@@ -37,11 +40,12 @@ export const ContactForm = ({
         <input 
         name="email" 
         type="text" 
-        value={ email }
+        value={ currentEmail }
+        onChange={ (e) => setCurrentEmail(e.target.value) }
         />
       </label><br />
 
-      <button>Submit</button>
+      <button type="submit">Submit</button>
     </form>
     </>
   );

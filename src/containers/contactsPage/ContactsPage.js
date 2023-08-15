@@ -17,7 +17,8 @@ export const ContactsPage = (props) => {
 
   useEffect(() => {
     
-    const isNameDuplicate = contacts.some(contact => contacts.name === currentName);
+    // checks to se if there are duplicate name when submitting a new contact.
+    const isNameDuplicate = contacts.some(contact => contact.name === currentName);
     setIsDuplicate(isNameDuplicate);
 
   },[currentName, contacts]);
@@ -28,6 +29,7 @@ export const ContactsPage = (props) => {
     Add contact info and clear data
     if the contact name is not a duplicate
     */
+   
 
    if(!isDuplicate){
 
@@ -37,6 +39,8 @@ export const ContactsPage = (props) => {
       setCurrentPhone('');
       setCurrentEmail('');
 
+   } else if (currentName === "" || currentName === " ") {  // Does not add contact if value is nothing or with a space
+      alert('Please fill in a value.')
    } else {
 
       alert('The contact already exists.');
@@ -58,7 +62,15 @@ export const ContactsPage = (props) => {
     <div>
       <section>
         <h2>Add Contact</h2> 
-        <ContactForm handleSubmit={handleSubmit}/>
+        <ContactForm 
+        handleSubmit={ handleSubmit } 
+        currentName={ currentName }
+        setCurrentName={ setCurrentName }
+        currentPhone={ currentPhone }
+        setCurrentPhone={ setCurrentPhone }
+        currentEmail={ currentEmail }
+        setCurrentEmail={ setCurrentEmail }
+        />
       </section>
       <hr />
       <section>
