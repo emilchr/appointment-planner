@@ -69,7 +69,7 @@ export const AppointmentForm = ({
     //pattern="\d{2}-\d{2}-\d{4}"
     />
     </label><br />
-    <ContactPicker contacts={ contacts } />
+    <ContactPicker contacts={ contacts } contact={contact} setContact={setContact} />
     <button type="submit">Submit</button>
     
     </form>
