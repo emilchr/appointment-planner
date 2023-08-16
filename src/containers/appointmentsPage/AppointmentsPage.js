@@ -38,6 +38,7 @@ export const AppointmentsPage = (props) => {
       <section>
         <h2>Add Appointment</h2>
         <AppointmentForm 
+        contacts={ props.contacts }
         handleSubmit={ handleSubmit }
         name={ name }
         setName={ setName }
